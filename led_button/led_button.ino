@@ -7,7 +7,6 @@ bool current = LOW;
 
 void setup() {
   pinMode(LED,OUTPUT);
-  Serial.begin(9600);
 }
 
 bool debounceButton (bool last) {
@@ -23,8 +22,6 @@ void loop() {
   currentStateButton = debounceButton(lastStateButton);
   if (lastStateButton==LOW && currentStateButton==HIGH){
     isLIGHT=!isLIGHT;
-    Serial.print("isLIGHT: ");
-    Serial.println(isLIGHT);
   }    
   digitalWrite(LED,isLIGHT);
   lastStateButton = currentStateButton;
